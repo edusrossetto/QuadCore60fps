@@ -14,22 +14,27 @@ function makeid(length) {
 let interval;
 
 function random(x) {
-  let rl1 = "";
-  let rl2 = "";
+  let spot = "";
+  let spot2 = "";
   let text = "";
   let element = x;
+  let random = Math.floor(Math.random() * 3);
+  let random2 = Math.floor(Math.random() * 500) + 100;
 
   text = element.innerHTML.slice(0, -2);
   element.innerHTML = text + "xd";
 
+  if (random != 1) {
+    interval = setInterval(() => {
+      spot = makeid(1);
+    }, random2);
+    interval = setInterval(() => {
+      spot2 = makeid(1);
+    }, random2);
+  }
+
   interval = setInterval(() => {
-    rl1 = makeid(1);
-  }, 300);
-  interval = setInterval(() => {
-    rl2 = makeid(1);
-  }, 100);
-  interval = setInterval(() => {
-    element.innerHTML = text + rl1 + rl2;
+    element.innerHTML = text + spot1 + spot2;
   }, 100);
 }
 
@@ -37,4 +42,8 @@ function sRandom(first, value) {
   let firstx = first;
   firstx.innerHTML = String(value);
   clearInterval(interval);
+}
+
+function rnumber() {
+  console.log(Math.floor(Math.random() * 2));
 }
